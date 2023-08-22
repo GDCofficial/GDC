@@ -67,7 +67,7 @@ Recommended:
 * High-performance SSD with at least 1TB of free space
 * 25+ MBit/sec download Internet service
 
-### Full node on the main Ethereum network
+### Full node on the main GDC network
 
 By far the most common scenario is people wanting to simply interact with the Ethereum
 network: create accounts; transfer funds; deploy and interact with contracts. For this
