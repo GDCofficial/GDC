@@ -45,7 +45,6 @@ const (
 type hookedPrompter struct {
 	scheduler chan string
 }
-
 func (p *hookedPrompter) PromptInput(prompt string) (string, error) {
 	// Send the prompt to the tester
 	select {
@@ -153,7 +152,6 @@ func (env *tester) Close(t *testing.T) {
 	}
 	os.RemoveAll(env.workspace)
 }
-
 // Tests that the node lists the correct welcome message, notably that it contains
 // the instance name, coinbase account, block number, data directory and supported
 // console modules.
