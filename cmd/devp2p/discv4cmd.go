@@ -53,13 +53,6 @@ var (
 		ArgsUsage: "<node>",
 		Flags:     discoveryNodeFlags,
 	}
-	discv4RequestRecordCommand = &cli.Command{
-		Name:      "requestenr",
-		Usage:     "Requests a node record using EIP-868 enrRequest",
-		Action:    discv4RequestRecord,
-		ArgsUsage: "<node>",
-		Flags:     discoveryNodeFlags,
-	}
 	discv4ResolveCommand = &cli.Command{
 		Name:      "resolve",
 		Usage:     "Finds a node in the DHT",
@@ -67,6 +60,14 @@ var (
 		ArgsUsage: "<node>",
 		Flags:     discoveryNodeFlags,
 	}
+	discv4RequestRecordCommand = &cli.Command{
+		Name:      "requestenr",
+		Usage:     "Requests a node record using EIP-868 enrRequest",
+		Action:    discv4RequestRecord,
+		ArgsUsage: "<node>",
+		Flags:     discoveryNodeFlags,
+	}
+
 	discv4ResolveJSONCommand = &cli.Command{
 		Name:      "resolve-json",
 		Usage:     "Re-resolves nodes in a nodes.json file",
