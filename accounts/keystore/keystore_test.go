@@ -13,7 +13,6 @@
 //
 // You should have received a copy of the GNU Lesser General Public License
 // along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
-
 package keystore
 
 import (
@@ -229,7 +228,10 @@ func waitForKsUpdating(t *testing.T, ks *KeyStore, wantStatus bool, maxTime time
 	}
 	return false
 }
-
+type walletEvent struct {
+	accounts.WalletEvent
+	a accounts.Account
+}
 // Tests that the wallet notifier loop starts and stops correctly based on the
 // addition and removal of wallet event subscriptions.
 func TestWalletNotifierLifecycle(t *testing.T) {
@@ -272,10 +274,7 @@ func TestWalletNotifierLifecycle(t *testing.T) {
 	}
 }
 
-type walletEvent struct {
-	accounts.WalletEvent
-	a accounts.Account
-}
+
 
 // Tests that wallet notifications and correctly fired when accounts are added
 // or deleted from the keystore.
