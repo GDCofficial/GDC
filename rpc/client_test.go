@@ -119,7 +119,6 @@ func TestClientErrorData(t *testing.T) {
 		t.Fatalf("wrong error data %#v, want %#v", e.ErrorData(), testError{}.ErrorData())
 	}
 }
-
 func TestClientBatchRequest(t *testing.T) {
 	server := newTestServer()
 	defer server.Stop()
