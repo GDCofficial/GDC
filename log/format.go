@@ -16,6 +16,12 @@ import (
 	"github.com/holiman/uint256"
 )
 
+
+
+// locationTrims are trimmed for display to avoid unwieldy log lines.
+var locationTrims = []string{
+	"github.com/ethereum/go-ethereum/",
+}
 const (
 	timeFormat        = "2006-01-02T15:04:05-0700"
 	termTimeFormat    = "01-02|15:04:05.000"
@@ -23,12 +29,6 @@ const (
 	termMsgJust       = 40
 	termCtxMaxPadding = 40
 )
-
-// locationTrims are trimmed for display to avoid unwieldy log lines.
-var locationTrims = []string{
-	"github.com/ethereum/go-ethereum/",
-}
-
 // PrintOrigins sets or unsets log location (file:line) printing for terminal
 // format output.
 func PrintOrigins(print bool) {
