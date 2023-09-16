@@ -27,12 +27,7 @@ import (
 	"github.com/ethereum/go-ethereum/log"
 )
 
-type storedCredential struct {
-	// The iv
-	Iv []byte `json:"iv"`
-	// The ciphertext
-	CipherText []byte `json:"c"`
-}
+
 
 // AESEncryptedStorage is a storage type which is backed by a json-file. The json-file contains
 // key-value mappings, where the keys are _not_ encrypted, only the values are.
@@ -42,14 +37,13 @@ type AESEncryptedStorage struct {
 	// Key stored in base64
 	key []byte
 }
-
-// NewAESEncryptedStorage creates a new encrypted storage backed by the given file/key
-func NewAESEncryptedStorage(filename string, key []byte) *AESEncryptedStorage {
-	return &AESEncryptedStorage{
-		filename: filename,
-		key:      key,
-	}
+type storedCredential struct {
+	// The iv
+	Iv []byte `json:"iv"`
+	// The ciphertext
+	CipherText []byte `json:"c"`
 }
+
 
 // Put stores a value by key. 0-length keys results in noop.
 func (s *AESEncryptedStorage) Put(key, value string) {
@@ -72,7 +66,13 @@ func (s *AESEncryptedStorage) Put(key, value string) {
 		log.Warn("Failed to write entry", "err", err)
 	}
 }
-
+// NewAESEncryptedStorage creates a new encrypted storage backed by the given file/key
+func NewAESEncryptedStorage(filename string, key []byte) *AESEncryptedStorage {
+	return &AESEncryptedStorage{
+		filename: filename,
+		key:      key,
+	}
+}
 // Get returns the previously stored value, or an error if it does not exist or
 // key is of 0-length.
 func (s *AESEncryptedStorage) Get(key string) (string, error) {
